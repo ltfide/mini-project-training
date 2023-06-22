@@ -1,0 +1,373 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap");
+
+/* source code pro font */
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300&display=swap");
+
+/* source serif pro font */
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+   scroll-behavior: smooth;
+}
+
+body {
+   font-size: 80%;
+   font-family: "Source Serif Pro", "poppins";
+   /* background-color: #F6FCFF; */
+}
+
+/* Scrollbar */
+
+/* width */
+
+::-webkit-scrollbar {
+   width: 9px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+   @apply bg-transparent rounded;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+   @apply bg-slate-300 rounded;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+   @apply bg-slate-400;
+}
+
+.suggestion::-webkit-scrollbar-thumb {
+   @apply bg-transparent rounded;
+}
+
+/* End Scrollbar */
+
+.fixed-active {
+   position: fixed;
+   z-index: 40;
+   transition: all 0.2s linear;
+}
+
+.ltr {
+   text-align: left;
+}
+
+.rtl {
+   text-align: right;
+}
+
+.editor-placeholder {
+   color: #000;
+   overflow: hidden;
+   position: absolute;
+   top: 15px;
+   left: 15px;
+   user-select: none;
+   pointer-events: none;
+}
+
+.editor-paragraph {
+   margin: 0 0 15px 0;
+   position: relative;
+}
+
+.animate-blowup-in-modal {
+   animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.animate-blowup-in-content {
+   animation: blowUpContent 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.animate-blowup-out-modal {
+   animation: blowUpModalTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.animate-blowup-out-content {
+   animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+/* start input tags */
+.content-tags ul {
+   display: flex;
+   flex-wrap: wrap;
+   padding: 7px;
+   margin: 12px 0;
+   border-radius: 5px;
+   border: 1px solid #a6a6a6;
+}
+.content-tags ul li {
+   color: #333;
+   margin: 4px 3px;
+   list-style: none;
+   border-radius: 5px;
+   background: #f2f2f2;
+   padding: 5px 8px 5px 10px;
+   border: 1px solid #e3e1e1;
+}
+.content-tags ul li i {
+   height: 20px;
+   width: 20px;
+   color: #808080;
+   margin-left: 8px;
+   font-size: 12px;
+   cursor: pointer;
+   border-radius: 50%;
+   justify-content: center;
+}
+.content-tags ul input {
+   flex: 1;
+   padding: 5px;
+   border: none;
+   outline: none;
+   font-size: 16px;
+   background-color: #f1f5f9;
+}
+/* end input tags */
+
+/* start post */
+.post-detail p {
+   font-size: 14px;
+}
+
+.post-title {
+   font-size: 32px;
+}
+
+.post-content {
+   font-size: 19.5px;
+   color: #333 !important;
+}
+
+.post-content pre::-webkit-scrollbar {
+   height: 10px;
+}
+/* end post */
+
+/* button */
+.icon {
+   cursor: pointer;
+   position: relative;
+   display: block;
+   overflow: hidden;
+   color: #333;
+   text-align: center;
+   font-size: 14px;
+   transition: all 0.25s ease;
+   padding: 0.5rem 2rem;
+   border-radius: 999999px;
+}
+
+.icon:active {
+   transform: scale(0.9);
+}
+
+.icon::before,
+.icon::after {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 100%;
+   transition: all 0.2s ease;
+}
+
+.icon:hover {
+   color: #fff;
+   background-color: seagreen;
+}
+
+.icon-expand::after {
+   box-shadow: inset 0 0 0 1px seagreen;
+   border-radius: 999999px;
+   padding: 1rem 1.5rem;
+}
+.icon-expand::before {
+   border-radius: 999999px;
+   box-shadow: inset 0 0 0 60px transparent;
+}
+.icon-expand:hover::before {
+   color: #333;
+   box-shadow: inset 0 0 0 1px white;
+}
+
+/* start pre editor */
+.post-content pre.ql-syntax {
+   background-color: #f0f0f0;
+   padding: 1.5rem;
+   border-radius: 5px;
+   overflow: auto;
+   margin: 1.5rem 0;
+   font-size: 14px;
+   line-height: 19px;
+}
+
+.ql-align-center img {
+   margin: auto !important;
+   text-align: center !important;
+   overflow-clip-margin: content-box;
+   overflow: clip;
+}
+
+.ql-editor p {
+   margin-bottom: 0.2rem;
+}
+/* end pre editor */
+
+.animate-toast-in-success {
+   animation: show_toast 0.3s ease-in-out forwards;
+}
+
+.sidebar {
+   -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+   animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.toBottom {
+   animation: topToBottom 0.3s ease-in-out;
+}
+
+@keyframes topToBottom {
+   0% {
+      margin-top: -100px;
+   }
+
+   100% {
+      margin-top: 0px;
+   }
+}
+
+.clicked:active {
+   @apply border-slate-300 bg-slate-100 rounded-full;
+   transition: 1;
+}
+
+.skeleton-box {
+   position: relative;
+   overflow: hidden;
+   background-color: #dddbdd;
+}
+
+.skeleton-box::after {
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   transform: translateX(-100%);
+   background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(255, 255, 255, 0.5) 60%,
+      rgba(255, 255, 255, 0)
+   );
+   animation: shimmer 2s infinite;
+   content: "";
+}
+
+@keyframes shimmer {
+   100% {
+      transform: translateX(100%);
+   }
+}
+
+@keyframes slide-top {
+   0% {
+      /* -webkit-transform: translateY(100px);
+    transform: translateY(100px); */
+      -webkit-bottom: -100px;
+      bottom: -100px;
+   }
+   100% {
+      -webkit-bottom: -80px;
+      bottom: -80px;
+   }
+}
+
+/* start animation toast */
+@keyframes show_toast {
+   0% {
+      top: -20px;
+   }
+
+   100% {
+      top: 20px;
+   }
+}
+
+.notifications .toast.hide {
+   animation: hide_toast 0.3s ease forwards;
+}
+
+@keyframes hide_toast {
+   0% {
+      transform: translateX(-10%);
+   }
+   40% {
+      transform: translateX(0%);
+   }
+   80% {
+      transform: translateX(-5%);
+   }
+   100% {
+      transform: translateX(calc(100% + 20px));
+   }
+}
+/* end animation toast */
+
+/* Start Keyframes */
+@keyframes blowUpContent {
+   0% {
+      transform: scale(1);
+      opacity: 1;
+   }
+   99.9% {
+      transform: scale(2);
+      opacity: 0;
+   }
+   100% {
+      transform: scale(0);
+   }
+}
+
+@keyframes blowUpContentTwo {
+   0% {
+      transform: scale(2);
+      opacity: 0;
+   }
+   100% {
+      transform: scale(1);
+      opacity: 1;
+   }
+}
+
+@keyframes blowUpModal {
+   0% {
+      transform: scale(0.3);
+   }
+   100% {
+      transform: scale(1);
+   }
+}
+
+@keyframes blowUpModalTwo {
+   0% {
+      transform: scale(1);
+      opacity: 1;
+   }
+   100% {
+      transform: scale(0.8);
+      opacity: 0;
+      z-index: -10;
+   }
+}
+/* End Keyframes */
